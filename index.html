@@ -25,18 +25,20 @@
 						<li><strong>Gestion des Conflits</strong></li>
 						<li><strong>Stabilité du Code</strong></li>
 					</ul>
+					<aside class="notes"> exemple pour des tests a la con = une branche draft</aside>
 				</section>
 
 				<section>
-					<h2>Structure des Branches</h2>
+					<h2>Nommage des Branches</h2>
 					<ul>
-						<li><strong>main</strong></li>
-						<li><strong>develop</strong></li>
-						<li><strong>feature/&lt;MyFeature&gt;</strong></li>
-						<li><strong>hotfix/&lt;correctifCritiqueEnProduction&gt;</strong></li>
-						<li><strong>bugfix/&lt;Correctif&gt;</strong></li>
-						<li><strong>ci/&lt;pipelineDevelop&gt;</strong></li>
+						<li class="fragment"><strong>main</strong></li>
+						<li class="fragment"><strong>develop</strong></li>
+						<li class="fragment"><strong>feature/&lt;MyFeature&gt;</strong></li>
+						<li class="fragment"><strong>hotfix/&lt;correctifCritiqueEnProduction&gt;</strong></li>
+						<li class="fragment"><strong>bugfix/&lt;Correctif&gt;</strong></li>
+						<li class="fragment"><strong>ci/&lt;pipelineDevelop&gt;</strong></li>
 					</ul>
+					<aside class="notes"> exemple de branche feature/create-layout</aside>
 				</section>
 
 				<section>
@@ -61,6 +63,7 @@
 						<li><strong>(auth)</strong> : Spécifie que les tests concernent l'authentification.</li>
 						<li><strong>ajout de tests pour la connexion utilisateur</strong> : Brève description du changement.</li>
 					</ul>
+					<aside class="notes">in English ou en Serbo-croate?</aside>
 				</section>
 
 				<section>
@@ -68,9 +71,9 @@
 
 					<ul>
 						<li><code>feat</code>: Ajout d'une nouvelle fonctionnalité (<code>feat: ajout du mode sombre</code>)</li>
-						<li><code>fix</code>: Correction de bug (<code>fix: correction du crash sur la page d'accueil</code>)</li>
+						<li><code>fix</code>: Correction de bug </code>)</li>
 						<li><code>docs</code>: Mise à jour de la documentation (<code>docs: amélioration du README</code>)</li>
-						<li><code>style</code>: Changement de style (indentation, espaces, etc.)</li>
+						<li><code>style</code>: Changement de style </li>
 						<li><code>refactor</code>: Refactorisation du code sans changement de fonctionnalité</li>
 						<li><code>test</code>: Ajout ou mise à jour des tests</li>
 					</ul>
@@ -80,10 +83,28 @@
 					<h2>La Pull Request (PR)</h2>
 					<ul>
 						<li class="fragment"><strong>Création via GitHub</strong></li>
-						<li class="fragment">Sélectionner la branche source et la branche cible (la develop)</li>
+						<li class="fragment">En general, la PR est proposée automatiquement apres un push mais au besoin, Sélectionner la branche source et la branche cible (la develop)</li>
 						<li class="fragment">Rédiger une courte description</li>
-						<li class="fragment">Demander une revue de code</li>
+						<li class="fragment">Demander une revue de code en selectionnant 1 ou plsrs reviewers</li>
 					</ul>
+					<aside class="notes">Une PR permet de valider et de discuter les modifications avant de les intégrer. on peut aussi conditionner par la reussite de test, le reviewer peut approuvé, refuser, ou jouer la montre</aside>
+
+				</section>
+
+				<section>
+					<h2>Merge d'une Pull Request</h2>
+					<ul>
+						<li class="fragment"><strong>Commit de merge</strong> : Fusion explicite avec l'historique complet</li>
+						<li class="fragment"><strong>Rebase</strong> : Réécrit l'historique pour un historique linéaire</li>
+						<li class="fragment"><strong>Squash</strong> : Fusionne plusieurs commits en un seul</li>
+					</ul>
+					<pre class="fragment"><code>git merge --no-ff feature/ma-feature</code></pre>
+					<aside class="notes">
+						- **Commit de merge** : Ajoute un commit spécifique marquant la fusion, permettant de visualiser l'origine des changements.
+						- **Rebase** : Réécrit l'historique pour le rendre linéaire, utile pour éviter les commits de merge inutiles mais risqué si conflits.
+						- **Squash** : Condense tous les commits d'une branche en un seul, idéal pour une PR avec plusieurs petits commits.
+						- Dans la plupart des cas, le **commit de merge** est privilégié car il garde l'historique clair et traçable. c celui utilisé par defaut quand on valide sur github
+					</aside>
 				</section>
 
 				<section>
