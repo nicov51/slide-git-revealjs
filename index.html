@@ -16,11 +16,86 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-markdown="git.md"
-						 data-separator="^\n\n\n"
-						 data-separator-vertical="^\n\n"
-						 data-separator-notes="^Note:" >
+				<section>
+					<h2>Pourquoi Utiliser Plusieurs Branches dans Git ?</h2>
+					<ul>
+						<li><strong>Travail Simultané</strong></li>
+						<li><strong>Isolation des Modifications</strong></li>
+						<li><strong>Expérimentation Sûre</strong></li>
+						<li><strong>Gestion des Conflits</strong></li>
+						<li><strong>Stabilité du Code</strong></li>
+					</ul>
 				</section>
+
+				<section>
+					<h2>Structure des Branches</h2>
+					<ul>
+						<li><strong>main</strong></li>
+						<li><strong>develop</strong></li>
+						<li><strong>feature/&lt;MyFeature&gt;</strong></li>
+						<li><strong>hotfix/&lt;correctifCritiqueEnProduction&gt;</strong></li>
+						<li><strong>bugfix/&lt;Correctif&gt;</strong></li>
+						<li><strong>ci/&lt;pipelineDevelop&gt;</strong></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Enregistrement et Envoi des Modifications</h2>
+					<ol>
+						<li><strong>Ajouter les Modifications</strong> <code>git add &lt;fichier&gt;</code></li>
+						<li><strong>Créer un Commit</strong> <code>git commit -m "Message de commit" , en respectant les conventionals commit</code></li>
+						<li><strong>Envoyer les Modifications</strong> <code>git push origin &lt;nom-branche&gt;</code> On push pas directement sur la develop!</li>
+					</ol>
+					<aside class="notes">Ne jamais push directement sur develop ! Toujours passer par une PR.</aside>
+				</section>
+
+				<section>
+					<h2>Structure d'un Commit Conventionnel</h2>
+					<p>Un commit conventionnel suit cette structure :</p>
+					<pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;description&gt;</code></pre>
+					<p>Exemple :</p>
+					<pre><code>test(auth): ajout de tests pour la connexion utilisateur</code></pre>
+					<p>Explication :</p>
+					<ul>
+						<li><strong>test</strong> : Indique qu'il s'agit de l'ajout de tests.</li>
+						<li><strong>(auth)</strong> : Spécifie que les tests concernent l'authentification.</li>
+						<li><strong>ajout de tests pour la connexion utilisateur</strong> : Brève description du changement.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>les types de Commits</h2>
+
+					<ul>
+						<li><code>feat</code>: Ajout d'une nouvelle fonctionnalité (<code>feat: ajout du mode sombre</code>)</li>
+						<li><code>fix</code>: Correction de bug (<code>fix: correction du crash sur la page d'accueil</code>)</li>
+						<li><code>docs</code>: Mise à jour de la documentation (<code>docs: amélioration du README</code>)</li>
+						<li><code>style</code>: Changement de style (indentation, espaces, etc.)</li>
+						<li><code>refactor</code>: Refactorisation du code sans changement de fonctionnalité</li>
+						<li><code>test</code>: Ajout ou mise à jour des tests</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>La Pull Request (PR)</h2>
+					<ul>
+						<li class="fragment"><strong>Création via GitHub</strong></li>
+						<li class="fragment">Sélectionner la branche source et la branche cible (la develop)</li>
+						<li class="fragment">Rédiger une courte description</li>
+						<li class="fragment">Demander une revue de code</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Mise à Jour des Branches</h2>
+					<ul>
+						<li class="fragment"><strong>Après une Pull Request (PR), on detruit la branche</strong></li>
+						<li class="fragment"><code>git pull origin develop si besoin de se mettre a jour et on tire une nouvelle branche depuis la develop</code></li>
+						<li class="fragment">conflits possibles</li>
+					</ul>
+				</section>
+
+
 				
 			</div>
 		</div>
@@ -30,13 +105,9 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
+				slideNumber: true,
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
